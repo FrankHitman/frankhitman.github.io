@@ -1,0 +1,64 @@
+2025-02-24 17:39:02 - sqlalchemy.engine.Engine - INFO - SELECT DATABASE()
+2025-02-24 17:39:02 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-02-24 17:39:02 - sqlalchemy.engine.Engine - INFO - SELECT @@sql_mode
+2025-02-24 17:39:02 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-02-24 17:39:02 - sqlalchemy.engine.Engine - INFO - SELECT @@lower_case_table_names
+2025-02-24 17:39:02 - sqlalchemy.engine.Engine - INFO - [raw sql] ()
+2025-02-24 17:39:02 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-02-24 17:39:02 - sqlalchemy.engine.Engine - INFO - SAVEPOINT sa_savepoint_1
+2025-02-24 17:39:02 - sqlalchemy.engine.Engine - INFO - [no key 0.00084s] ()
+2025-02-24 17:39:02 - sqlalchemy.engine.Engine - INFO - SELECT plan.created AS plan_created, plan.updated AS plan_updated, plan.requirement_id AS plan_requirement_id, plan.applicable_disease AS plan_applicable_disease, plan.population AS plan_population, plan.hospital_department AS plan_hospital_department, plan.doctor_edu_content AS plan_doctor_edu_content, plan.patient_edu_content AS plan_patient_edu_content, plan.budget AS plan_budget, plan.service_rate AS plan_service_rate, plan.rate_type AS plan_rate_type, plan.service_price AS plan_service_price, plan.subcontract_price AS plan_subcontract_price, plan.id AS plan_id, plan.maneuver_count AS plan_maneuver_count, plan.total_price AS plan_total_price, plan.discount_price AS plan_discount_price 
+                                                        FROM plan 
+                                                        WHERE plan.id = %s FOR UPDATE
+2025-02-24 17:39:02 - sqlalchemy.engine.Engine - INFO - [generated in 0.00069s] (27,)
+2025-02-24 17:39:02 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-02-24 17:39:02 - sqlalchemy.engine.Engine - INFO - SAVEPOINT sa_savepoint_1
+2025-02-24 17:39:02 - sqlalchemy.engine.Engine - INFO - [no key 0.00031s] ()
+2025-02-24 17:39:02 - sqlalchemy.engine.Engine - INFO - SELECT maneuver.plan_id AS maneuver_plan_id, maneuver.created AS maneuver_created, maneuver.updated AS maneuver_updated, maneuver.service_type AS maneuver_service_type, maneuver.material_type AS maneuver_material_type, maneuver.material_count AS maneuver_material_count, maneuver.days AS maneuver_days, maneuver.total_count AS maneuver_total_count, maneuver.each_price AS maneuver_each_price, maneuver.total_price AS maneuver_total_price, maneuver.start_date AS maneuver_start_date, maneuver.only_workday AS maneuver_only_workday, maneuver.id AS maneuver_id, maneuver.date_detail AS maneuver_date_detail, maneuver.each_date_count AS maneuver_each_date_count, maneuver.title AS maneuver_title 
+                                                        FROM maneuver 
+                                                        WHERE maneuver.plan_id IN (%s)
+2025-02-24 17:39:02 - sqlalchemy.engine.Engine - INFO - [generated in 0.00083s] (27,)
+2025-02-24 17:39:02 - sqlalchemy.engine.Engine - INFO - SELECT plan.created AS plan_created, plan.updated AS plan_updated, plan.requirement_id AS plan_requirement_id, plan.applicable_disease AS plan_applicable_disease, plan.population AS plan_population, plan.hospital_department AS plan_hospital_department, plan.doctor_edu_content AS plan_doctor_edu_content, plan.patient_edu_content AS plan_patient_edu_content, plan.budget AS plan_budget, plan.service_rate AS plan_service_rate, plan.rate_type AS plan_rate_type, plan.service_price AS plan_service_price, plan.subcontract_price AS plan_subcontract_price, plan.id AS plan_id, plan.maneuver_count AS plan_maneuver_count, plan.total_price AS plan_total_price, plan.discount_price AS plan_discount_price 
+                                                        FROM plan 
+                                                        WHERE plan.id = %s FOR UPDATE
+2025-02-24 17:39:02 - sqlalchemy.engine.Engine - INFO - [cached since 0.07128s ago] (27,)
+2025-02-24 17:39:03 - sqlalchemy.engine.Engine - INFO - UPDATE plan SET updated=current_timestamp(0), maneuver_count=%s, total_price=%s, discount_price=%s WHERE plan.id = %s
+2025-02-24 17:39:03 - sqlalchemy.engine.Engine - INFO - [generated in 0.00084s] (2040, 304000, 4000.0, 27)
+2025-02-24 17:39:03 - sqlalchemy.engine.Engine - INFO - INSERT INTO maneuver (created, updated, plan_id, service_type, material_type, material_count, days, total_count, each_price, total_price, start_date, only_workday, date_detail, each_date_count, title) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+2025-02-24 17:39:03 - sqlalchemy.engine.Engine - INFO - [generated in 0.00191s] (datetime.datetime(2025, 2, 24, 9, 39, 3, 202005), datetime.datetime(2025, 2, 24, 9, 39, 3, 202030), 27, 'string', 'string', 1, 2, 10, 100, 1000, '2025-02-02', 0, '2025-02-02,2025-02-03', '5,5', '')
+2025-02-24 17:39:03 - sqlalchemy.engine.Engine - INFO - RELEASE SAVEPOINT sa_savepoint_1
+2025-02-24 17:39:03 - sqlalchemy.engine.Engine - INFO - [no key 0.00065s] ()
+2025-02-24 17:39:03 - sqlalchemy.engine.Engine - INFO - COMMIT
+2025-02-24 17:39:03 - sqlalchemy.engine.Engine - INFO - SELECT maneuver.plan_id AS maneuver_plan_id, maneuver.created AS maneuver_created, maneuver.updated AS maneuver_updated, maneuver.service_type AS maneuver_service_type, maneuver.material_type AS maneuver_material_type, maneuver.material_count AS maneuver_material_count, maneuver.days AS maneuver_days, maneuver.total_count AS maneuver_total_count, maneuver.each_price AS maneuver_each_price, maneuver.total_price AS maneuver_total_price, maneuver.start_date AS maneuver_start_date, maneuver.only_workday AS maneuver_only_workday, maneuver.id AS maneuver_id, maneuver.date_detail AS maneuver_date_detail, maneuver.each_date_count AS maneuver_each_date_count, maneuver.title AS maneuver_title 
+                                                        FROM maneuver 
+                                                        WHERE maneuver.plan_id IN (%s)
+2025-02-24 17:39:03 - sqlalchemy.engine.Engine - INFO - [cached since 0.5948s ago] (27,)
+2025-02-24 17:39:03 - sqlalchemy.engine.Engine - INFO - UPDATE plan SET updated=current_timestamp(0), maneuver_count=%s, total_price=%s, discount_price=%s WHERE plan.id = %s
+2025-02-24 17:39:03 - sqlalchemy.engine.Engine - INFO - [cached since 0.3884s ago] (2050, 305000, 5000.0, 27)
+2025-02-24 17:39:03 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-02-24 17:39:03 - sqlalchemy.engine.Engine - INFO - SELECT plan.created, plan.updated, plan.requirement_id, plan.applicable_disease, plan.population, plan.hospital_department, plan.doctor_edu_content, plan.patient_edu_content, plan.budget, plan.service_rate, plan.rate_type, plan.service_price, plan.subcontract_price, plan.id, plan.maneuver_count, plan.total_price, plan.discount_price 
+                                                        FROM plan 
+                                                        WHERE plan.id = %s
+2025-02-24 17:39:03 - sqlalchemy.engine.Engine - INFO - [generated in 0.00072s] (27,)
+2025-02-24 17:39:03 - sqlalchemy.engine.Engine - INFO - SELECT maneuver.created AS maneuver_created, maneuver.updated AS maneuver_updated, maneuver.plan_id AS maneuver_plan_id, maneuver.service_type AS maneuver_service_type, maneuver.material_type AS maneuver_material_type, maneuver.material_count AS maneuver_material_count, maneuver.days AS maneuver_days, maneuver.total_count AS maneuver_total_count, maneuver.each_price AS maneuver_each_price, maneuver.total_price AS maneuver_total_price, maneuver.start_date AS maneuver_start_date, maneuver.only_workday AS maneuver_only_workday, maneuver.id AS maneuver_id, maneuver.date_detail AS maneuver_date_detail, maneuver.each_date_count AS maneuver_each_date_count, maneuver.title AS maneuver_title 
+                                                        FROM maneuver 
+                                                        WHERE %s = maneuver.plan_id
+2025-02-24 17:39:03 - sqlalchemy.engine.Engine - INFO - [generated in 0.00072s] (27,)
+2025-02-24 17:39:03 - sqlalchemy.engine.Engine - INFO - INSERT INTO maneuver (created, updated, plan_id, service_type, material_type, material_count, days, total_count, each_price, total_price, start_date, only_workday, date_detail, each_date_count, title) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+2025-02-24 17:39:03 - sqlalchemy.engine.Engine - INFO - [cached since 0.4478s ago] (datetime.datetime(2025, 2, 24, 9, 39, 3, 595095), datetime.datetime(2025, 2, 24, 9, 39, 3, 595121), 27, 'string', 'string', 1, 2, 10, 100, 1000, '2025-02-02', 0, '2025-02-02,2025-02-03', '5,5', '')
+2025-02-24 17:39:03 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+2025-02-24 17:39:03 - sqlalchemy.engine.Engine - INFO - RELEASE SAVEPOINT sa_savepoint_1
+2025-02-24 17:39:03 - sqlalchemy.engine.Engine - INFO - [no key 0.00054s] ()
+2025-02-24 17:39:03 - sqlalchemy.engine.Engine - INFO - COMMIT
+INFO:     127.0.0.1:63259 - "POST /api_v2/maneuver HTTP/1.1" 201 Created
+2025-02-24 17:39:04 - sqlalchemy.engine.Engine - INFO - BEGIN (implicit)
+2025-02-24 17:39:04 - sqlalchemy.engine.Engine - INFO - SELECT plan.created, plan.updated, plan.requirement_id, plan.applicable_disease, plan.population, plan.hospital_department, plan.doctor_edu_content, plan.patient_edu_content, plan.budget, plan.service_rate, plan.rate_type, plan.service_price, plan.subcontract_price, plan.id, plan.maneuver_count, plan.total_price, plan.discount_price 
+                                                        FROM plan 
+                                                        WHERE plan.id = %s
+2025-02-24 17:39:04 - sqlalchemy.engine.Engine - INFO - [cached since 0.5113s ago] (27,)
+2025-02-24 17:39:04 - sqlalchemy.engine.Engine - INFO - SELECT maneuver.created AS maneuver_created, maneuver.updated AS maneuver_updated, maneuver.plan_id AS maneuver_plan_id, maneuver.service_type AS maneuver_service_type, maneuver.material_type AS maneuver_material_type, maneuver.material_count AS maneuver_material_count, maneuver.days AS maneuver_days, maneuver.total_count AS maneuver_total_count, maneuver.each_price AS maneuver_each_price, maneuver.total_price AS maneuver_total_price, maneuver.start_date AS maneuver_start_date, maneuver.only_workday AS maneuver_only_workday, maneuver.id AS maneuver_id, maneuver.date_detail AS maneuver_date_detail, maneuver.each_date_count AS maneuver_each_date_count, maneuver.title AS maneuver_title 
+                                                        FROM maneuver 
+                                                        WHERE %s = maneuver.plan_id
+2025-02-24 17:39:04 - sqlalchemy.engine.Engine - INFO - [cached since 0.3687s ago] (27,)
+2025-02-24 17:39:04 - sqlalchemy.engine.Engine - INFO - ROLLBACK
+INFO:     127.0.0.1:63261 - "POST /api_v2/maneuver HTTP/1.1" 201 Created
